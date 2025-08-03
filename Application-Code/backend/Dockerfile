@@ -1,12 +1,12 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies with legacy peer deps
-RUN npm install --legacy-peer-deps
+# Install dependencies
+RUN npm install
 
 # Copy source code
 COPY . .
