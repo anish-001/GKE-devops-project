@@ -5,11 +5,15 @@ const taskSchema = new Schema({
     task: {
         type: String,
         required: true,
+        trim: true,
+        maxlength: 500
     },
     completed: {
         type: Boolean,
-        default: false,
-    },
+        default: false
+    }
+}, {
+    timestamps: true // Adds createdAt and updatedAt fields
 });
 
 module.exports = mongoose.model("task", taskSchema);

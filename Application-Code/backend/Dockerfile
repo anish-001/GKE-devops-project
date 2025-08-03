@@ -1,6 +1,22 @@
-FROM node:14
+FROM node:18-alpine
+
 WORKDIR /usr/src/app
+
+# Copy package files
 COPY package*.json ./
-RUN npm install
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Copy source code
 COPY . .
-CMD ["node", "index.js"]
+
+# Expose port
+EXPOSE 3500
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3500/healthz', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
+
+# Start the application
+CMD ["npm", "start"]

@@ -1,6 +1,24 @@
-FROM node:14
+FROM node:18-alpine
+
 WORKDIR /usr/src/app
+
+# Copy package files
 COPY package*.json ./
-RUN npm install
+
+# Install dependencies
+RUN npm ci
+
+# Copy source code
 COPY . .
-CMD [ "npm", "start" ]
+
+# Build the app for production
+RUN npm run build
+
+# Install serve to run the built app
+RUN npm install -g serve
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["serve", "-s", "build", "-l", "3000"]
