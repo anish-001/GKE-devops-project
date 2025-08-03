@@ -11,7 +11,7 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     min-height: 100vh;
 }
 
@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 /* Loading State */
@@ -29,14 +29,14 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    color: white;
+    color: #1d1d1f;
 }
 
 .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top: 3px solid white;
+    border: 3px solid rgba(0, 122, 255, 0.2);
+    border-top: 3px solid #007AFF;
     border-radius: 50%;
     margin-bottom: 20px;
 }
@@ -45,13 +45,14 @@ body {
     font-size: 16px;
     font-weight: 400;
     opacity: 0.8;
+    color: #1d1d1f;
 }
 
 /* Header */
 .app-header {
     text-align: center;
     padding: 40px 20px 20px;
-    color: white;
+    color: #1d1d1f;
 }
 
 .app-header h1 {
@@ -59,13 +60,15 @@ body {
     font-weight: 700;
     margin-bottom: 8px;
     letter-spacing: -0.5px;
+    color: #1d1d1f;
 }
 
 .app-header p {
     font-size: 18px;
     font-weight: 400;
-    opacity: 0.9;
+    opacity: 0.7;
     margin: 0;
+    color: #6c757d;
 }
 
 /* Main Content */
@@ -84,8 +87,8 @@ body {
     backdrop-filter: blur(20px);
     border-radius: 24px;
     padding: 32px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 /* Task Form */
@@ -109,6 +112,7 @@ body {
     background: white;
     transition: all 0.3s ease;
     outline: none;
+    color: #1d1d1f;
 }
 
 .task-input:focus {
@@ -163,11 +167,12 @@ body {
     border: 1px solid #e1e5e9;
     transition: all 0.3s ease;
     gap: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .task-item:hover {
     border-color: #007AFF;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transform: translateY(-1px);
 }
 
@@ -309,6 +314,30 @@ body {
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+    }
+    
+    .app {
+        background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+    }
+    
+    .loading-container {
+        color: white;
+    }
+    
+    .app-header {
+        color: white;
+    }
+    
+    .app-header h1 {
+        color: white;
+    }
+    
+    .app-header p {
+        color: #8e8e93;
+    }
+    
     .todo-container {
         background: rgba(28, 28, 30, 0.95);
         border-color: rgba(255, 255, 255, 0.1);

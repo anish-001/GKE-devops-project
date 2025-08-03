@@ -28,8 +28,10 @@ spec:
         image: us-central1-docker.pkg.dev/jenkins-467900/backend-repo/backend:1
         imagePullPolicy: Always
         env:
+          - name: USE_DB_AUTH
+            value: "true"
           - name: MONGO_CONN_STR
-            value: mongodb://mongodb-svc:27017/todo?directConnection=true
+            value: mongodb://mongodb-svc:27017/todo?directConnection=true&authSource=admin
           - name: MONGO_USERNAME
             valueFrom:
               secretKeyRef:
