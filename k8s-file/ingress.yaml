@@ -5,10 +5,13 @@ metadata:
   namespace: three-tier
   annotations:
     kubernetes.io/ingress.class: "gce"
+    # Optional: Add these annotations for better load balancer behavior
+    # kubernetes.io/ingress.global-static-ip-name: "your-static-ip-name"
+    # networking.gke.io/load-balancer-type: "External"
 spec:
+  # Remove the rules.host section to use load balancer IP directly
   rules:
-    - host: aaqibhussain.link
-      http:
+    - http:
         paths:
           - path: /api
             pathType: Prefix
