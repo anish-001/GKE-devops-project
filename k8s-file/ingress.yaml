@@ -5,6 +5,7 @@ metadata:
   namespace: three-tier
   annotations:
     kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.allow-http: "true"
     # Optional: Add these annotations for better load balancer behavior
     # kubernetes.io/ingress.global-static-ip-name: "your-static-ip-name"
     # networking.gke.io/load-balancer-type: "External"
