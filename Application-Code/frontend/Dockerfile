@@ -1,4 +1,5 @@
-FROM node:18-alpine
+# Build stage
+FROM node:18-alpine AS builder
 
 WORKDIR /usr/src/app
 
@@ -6,7 +7,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .
@@ -14,8 +15,16 @@ COPY . .
 # Build the app for production
 RUN npm run build
 
-# Install serve to run the built app
+# Production stage
+FROM node:18-alpine
+
+WORKDIR /usr/src/app
+
+# Install serve globally
 RUN npm install -g serve
+
+# Copy built app from builder stage
+COPY --from=builder /usr/src/app/build ./build
 
 # Expose port
 EXPOSE 3000
