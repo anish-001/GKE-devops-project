@@ -25,7 +25,7 @@ spec:
       - name: gcr-registry-secret
       containers:
       - name: api
-        image: us-central1-docker.pkg.dev/jenkins-proj2/backend-repo/backend:1
+        image: us-central1-docker.pkg.dev/jenkins-467900/backend-repo/backend:1
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR

@@ -25,10 +25,12 @@ spec:
       - name: gcr-registry-secret
       containers:
       - name: frontend
-        image: us-central1-docker.pkg.dev/jenkins-proj2/frontend-repo/frontend:19
+        image: us-central1-docker.pkg.dev/jenkins-467900/frontend-repo/frontend:19
         imagePullPolicy: Always
         env:
           - name: REACT_APP_BACKEND_URL
             value: "http://aaqibhussain.link/api/tasks"
         ports:
         - containerPort: 3000
+
+        
